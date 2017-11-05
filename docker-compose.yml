@@ -1,0 +1,31 @@
+version: '2'
+services:
+  wordpress:
+    image: wordpress:4.8.2-php7.1-fpm-alpine
+    volumes:
+      - ./themes:/var/www/html/wp-content/themes
+      - ./plugins:/var/www/html/wp-content/plugins
+    environment:
+      WORDPRESS_DB_PASSWORD: ${WP_DOCKER_DB_PW}
+    links:
+      - mysql:mysql
+  nginx:
+    image: nginx:1
+    volumes:
+      - ./etc/nginx/restrictions.conf:/etc/nginx/restrictions.conf
+      - ./etc/nginx/wordpress.conf:/etc/nginx/wordpress.conf
+      - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+      #- ./etc/nginx/ssl:/etc/nginx/ssl
+    volumes_from:
+      - wordpress
+    ports:
+      #- "443:443"
+      - "8080:80"
+    links:
+      - wordpress
+  mysql:
+    image: mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${WP_DOCKER_DB_PW}

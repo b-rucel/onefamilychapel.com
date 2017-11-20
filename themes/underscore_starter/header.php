@@ -24,33 +24,130 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'underscore_starter' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
+<header id="grve-header" class="grve-fullwidth grve-overlapping grve-responsive-overlapping grve-fixed" data-sticky="shrink" data-sticky-height="60" data-devices-sticky="yes">
+  <div class="grve-wrapper clearfix">
 
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
+    <!-- Header -->
+    <div id="grve-main-header" class="grve-header-default grve-dark">
+        <div class="grve-wrapper clearfix">
+            <div class="grve-container">
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'underscore_starter' ); ?></button>
-			<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+                <!-- Logo -->
+                <div class="grve-logo grve-position-left">
+                    <div class="grve-wrapper">
+                        <a href="http://greatives.eu/themes/blade-v2/">
+                        <img class="grve-default" src="//greatives.eu/themes/blade-v2/wp-content/uploads/2016/02/logo-default.png" alt="Blade High Quality WP Theme" data-no-retina="" width="136" height="30">
+                        <img class="grve-light" src="//greatives.eu/themes/blade-v2/wp-content/uploads/2016/02/logo-light.png" alt="Blade High Quality WP Theme" data-no-retina="" width="136" height="30">
+                        <img class="grve-dark" src="//greatives.eu/themes/blade-v2/wp-content/uploads/2016/02/logo-default.png" alt="Blade High Quality WP Theme" data-no-retina="" width="136" height="30">
+                        <img class="grve-sticky" src="//greatives.eu/themes/blade-v2/wp-content/uploads/2016/02/logo-light.png" alt="Blade High Quality WP Theme" data-no-retina="" width="136" height="30">
+                        </a>
+                    </div>
+                </div>
+                <!-- End Logo -->
+
+                <div class="grve-header-elements-wrapper grve-position-right">
+
+                    <!-- Header Elements -->
+                    <div class="grve-header-elements grve-position-left">
+                        <div class="grve-wrapper">
+                            <ul>
+                                <li class="grve-header-element"><a href="#grve-search-modal" class="grve-toggle-modal"><span class="grve-item"><i class="grve-icon-search"></i></span></a></li>
+                                <li class="grve-header-element"><a href="#grve-socials-modal" class="grve-toggle-modal"><span class="grve-item"><i class="grve-icon-socials"></i></span></a></li>
+                                <li class="grve-header-element">
+                                    <a href="#grve-cart-area" class="grve-toggle-hiddenarea">
+                                    <span class="grve-item">
+                                    <i class="grve-icon-cart"></i>
+                                    </span>
+                                    </a>
+                                    <span class="grve-purchased-items">0</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- End Header Elements -->
+                    <div class="grve-header-elements grve-position-left">
+                        <div class="grve-wrapper">
+                            <ul>
+                                <li class="grve-header-element">
+                                    <a href="#grve-sidearea" class="grve-sidearea-btn grve-toggle-hiddenarea">
+                                    <span class="grve-item"><i class="grve-icon-bullets-v"></i></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Menu -->
+                <nav id="grve-main-menu" class="grve-horizontal-menu grve-position-right grve-arrow grve-menu-type-classic">
+                    <div class="grve-wrapper">
+                    </div>
+                </nav>
+                <!-- End Main Menu -->
+            </div>
+        </div>
+    </div>
+    <!-- End Header -->
+
+    <!-- Responsive Header -->
+    <div id="grve-responsive-header" class="grve-fixed">
+        <div class="grve-wrapper clearfix">
+            <div class="grve-container">
+
+                <!-- Logo -->
+                <div class="grve-logo grve-position-left">
+                    <div class="grve-wrapper">
+                        <a href="http://greatives.eu/themes/blade-v2/">
+                        <img class="grve-logo-responsive" src="//greatives.eu/themes/blade-v2/wp-content/uploads/2016/02/logo-light.png" alt="Blade High Quality WP Theme" data-no-retina="" width="136" height="30">
+                        </a>
+                    </div>
+                </div>
+                <!-- End Logo -->
+
+                <div class="grve-header-elements-wrapper grve-position-right">
+                    <!-- Hidden Menu & Side Area Button -->
+                    <div class="grve-hidden-menu-btn grve-position-right">
+                        <div class="grve-header-element">
+                            <a href="#grve-hidden-menu" class="grve-toggle-hiddenarea">
+                            <span class="grve-item">
+                            <i class="grve-icon-menu"></i>
+                            </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grve-header-elements grve-position-right">
+                        <div class="grve-wrapper">
+                            <ul>
+                                <li class="grve-header-element">
+                                    <a href="http://greatives.eu/themes/blade-v2/cart/">
+                                    <span class="grve-item">
+                                    <i class="grve-icon-cart"></i>
+                                    </span>
+                                    </a>
+                                    <span class="grve-purchased-items">0</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grve-header-elements grve-position-left">
+                        <div class="grve-wrapper">
+                            <ul>
+                                <li class="grve-header-element">
+                                    <a href="#grve-sidearea" class="grve-sidearea-btn grve-toggle-hiddenarea">
+                                    <span class="grve-item"><i class="grve-icon-bullets-v"></i></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Hidden Menu & Side Area Button -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Responsive Header -->
+  </div>
+</header>
 
 	<div id="content" class="site-content">
